@@ -1,5 +1,7 @@
 import http from "http";
 import "dotenv/config";
+import { handleHomeRoute } from "./routes/homepage";
+import { handleAboutRoute } from "./routes/aboutpage";
 
 const PORT = process.env.PORT;
 
@@ -23,7 +25,13 @@ server.listen(PORT, () => {
 const processGetRequests = (
   req: http.IncomingMessage,
   res: http.ServerResponse,
-) => { };
+) => {
+  if (req.url === "/") {
+    handleHomeRoute(req, res);
+  } else if (req.url === "/about") {
+    handleAboutRoute(req, res);
+  }
+};
 
 const processPostRequests = (
   req: http.IncomingMessage,
