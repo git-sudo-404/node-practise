@@ -7,8 +7,8 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, { "content-type": "text/json" });
   res.write(
     JSON.stringify({
-      firstName: "Chiranjeev",
-      lastName: "Prasannaa",
+      firstName: "RED",
+      lastName: "Coder",
       CP: "Grandmaster",
       job: "SDE at Google",
       para: "Let's see if this paragrapgh turns into an array"
