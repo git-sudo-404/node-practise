@@ -1,0 +1,8 @@
+# Dependencies
+/node_modules
+
+# Environment Variables (Explicitly listed)
+.env
+
+# DS_Store
+.DS_Store
