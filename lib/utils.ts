@@ -1,5 +1,9 @@
 import http, { ServerResponse } from "http";
 import * as fs from "fs/promises";
+import { ROOT_DIR } from "../path.ts";
+import path from "path";
+
+const notFoundPageFile = path.join(ROOT_DIR, "pages", "NotFound.html");
 
 export const writeToRes = (res: http.ServerResponse, data: string) => {
   res.writeHead(200, { "content-type": "text/html" });
@@ -22,7 +26,7 @@ export const handleNotFoundPage = (
 ) => {
   res.writeHead(404, { "content-type": "text/html" });
 
-  fs.readFile("pages/NotFound.html", "utf-8")
+  fs.readFile(`${notFoundPageFile}`, "utf-8")
     .then((data) => {
       res.write(data);
     })

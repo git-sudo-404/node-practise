@@ -1,9 +1,13 @@
 import http, { ServerResponse } from "http";
 import { handleInvalidReqMethod } from "../lib/utils.ts";
 import * as fs from "fs/promises";
+import { ROOT_DIR } from "../path.ts";
+import path from "path";
+
+const aboutPageFile = path.join(ROOT_DIR, "pages", "About.html");
 
 function handleAboutRouteGET(req: http.IncomingMessage, res: ServerResponse) {
-  fs.readFile("pages/About.html", "utf-8")
+  fs.readFile(`${aboutPageFile}`, "utf-8")
     .then((data: string) => {
       res.writeHead(200, { "content-type": "text/html" });
       res.end(data);

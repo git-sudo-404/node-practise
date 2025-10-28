@@ -1,12 +1,17 @@
 import http, { ServerResponse } from "http";
 import * as fs from "fs/promises";
 import { handleNotFoundPage, writeToRes } from "../lib/utils.ts";
+import url from "url";
+import { ROOT_DIR } from "../path.ts";
+import path from "path";
+
+const homePageFile = path.join(ROOT_DIR, "pages", "HomePage.html");
 
 function handleHomeRouteGET(
   req: http.IncomingMessage,
   res: http.ServerResponse,
 ) {
-  fs.readFile("pages/HomePage.html", "utf-8")
+  fs.readFile(`${homePageFile}`, "utf-8")
     .then((data: string) => {
       writeToRes(res, data);
     })

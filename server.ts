@@ -3,6 +3,8 @@ import "dotenv/config";
 import { handleNotFound } from "./routes/notfound.ts";
 import { handleHomeRoute } from "./routes/homepage.ts";
 import { handleAboutRoute } from "./routes/aboutpage.ts";
+import url, { fileURLToPath } from "url";
+import path from "path";
 
 const PORT = process.env.PORT;
 
